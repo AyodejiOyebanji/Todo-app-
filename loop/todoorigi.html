@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/loop/square.css">
+    <link rel="stylesheet" href="/bootstrap-5.1.1-dist/css/bootstrap.css">
+   
+    <title>Document</title>
+</head>
+<body style="background-color:#E2E2E2; " onload="getTodos()">
+<section style="margin-top: -70px;">
+    <div id="faceOne">
+      
+    <button class="glow-on-hover " type="button" onclick="logOut()" id="welcome">Log out</button> 
+    <div class="whole rounded-top">
+        <div id="hello" style="color: white; font-size: 20px;">
+        
+                    </div>         
+        <h4 style="margin-left: 240px;">Add New Thing</h4>
+ <img src="/loop/images/todo-removebg-preview.png" alt="" style="height: 40px;margin-left: 30px;margin-top: 10px;margin-left: 300px;" srcset="">
+    </div>
+    <div class="sub ">
+<input type="text" name="" id="purpose" placeholder="Category" class="form-control">
+<input type="text" name="" id="headingTo" placeholder="Heading To" class="form-control my-3">
+<input type="text" name="" id="place" placeholder="Place" class="form-control my-3">
+<input type="time" name="" id="time" placeholder="Time" class="form-control my-3">
+<input type="text" name="" id="notification" placeholder="Notification" class="form-control my-3">
+
+<button class="glow-on-hover" type="button" onclick="myAdd()">Add</button>
+<button onclick="myShowCase()" class="glow-on-hover " type="button" style="margin-top: 10px;">Show</button>
+
+    </div>
+</div>
+    
+
+    <div  style="display: none;" id="showMe">
+        <button class="glow-on-hover " type="button" onclick="back()" id="welcome">BACK</button> 
+        <div class="whole rounded-top">
+                   
+            <h4 style="margin-left: 240px;">Add New Thing</h4>
+     <img src="/loop/images/todo-removebg-preview.png" alt="" style="height: 40px;margin-left: 30px;margin-top: 10px;margin-left: 300px;" srcset="">
+        </div>
+        <div class="sub ">
+            <div id="disp" style="margin-left: 0px;">
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th style="transform: translateX(50px);">todo</th>
+                            <th style="transform: translateX(100px);">todo</th>
+                            <th style="transform: translateX(110px);">todo</th>
+                            <th style="transform: translateX(88px);">todo</th>
+                            <th style="transform: translateX(100px);">todo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="thead"  >
+                        <td id="del"></td>
+
+                    </tbody>
+                </table>
+                <div id="myModelEdit">
+                      
+                      <!-- Modal -->
+                      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="staticBackdropLabel">Todo</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" name=""  placeholder="Category" class="form-control">
+                                <input type="text" name="" placeholder="Heading To" class="form-control my-3">
+                                <input type="text" name=""  placeholder="Place" class="form-control my-3">
+                                <input type="time" name="" placeholder="Time" class="form-control my-3">
+                                <input type="text" name=""  placeholder="Notification" class="form-control my-3">
+                                
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Confirm</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+
+                </div>
+
+            </div>
+             <div>
+                 <button class="glow-on-hover " onclick="myDelete()">Delete</button>
+                 <button class="glow-on-hover ">Edit</button>
+             </div>
+            
+    </div>
+</section>
+
+
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+
+
+
+    <script  >
+        let arr = [];
+        let myStuffs = [];
+        let listOfMyTodo = {}
+        let a = JSON.stringify(localStorage.carNet);
+        let myArray = JSON.parse(localStorage.carNet);
+        let currentUser= JSON.parse(localStorage.currentUser)
+        let indexOfUser = JSON.parse(localStorage.currentIndex)    
+      hello.innerHTML = `What's Up ${currentUser.name}`
+
+        function fakeyNew() {
+            myArray = JSON.parse(localStorage.carNet);
+            console.log(indexOfUser);
+            thead.innerHTML = '';
+            
+            let myTodo = myArray[indexOfUser].todo;
+             myTodo.map((val, i)=>{
+                 thead.innerHTML+= 
+                `<tr><td id="tdy">${i +1}</td>
+                    <td id="tdy">${val.purpose}</td>
+                        <td id="tdy">${val.headingTo}</td>
+                            <td id="tdy">${val.place}</td>
+                                <td id="tdy"> ${val.time}</td>
+                                    <td id="tdy"> ${val.notification}</td>
+                                     <td><button class="btn btn-danger" onclick="myDelete(i)">Delete</button></td>       
+                                     <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Edit</button></td>
+                                     
+
+                                    ` 
+                 
+             })
+            
+        }
+        // fakeyNew()
+
+        function myAdd() {
+            let myArray = JSON.parse(localStorage.carNet);
+            console.log(myArray);
+            let indexOfUser = JSON.parse(localStorage.currentIndex);
+            myArray[indexOfUser].todo = myArray[indexOfUser].todo ? myArray[indexOfUser].todo : [];
+            console.log(indexOfUser);
+            let newestTodo={
+                purpose: purpose.value,
+                headingTo: headingTo.value,
+                place:place.value,
+                time:time.value,
+                notification: notification.value
+                }
+            let toDoMe = myArray[indexOfUser].todo.push(newestTodo);
+            console.log(toDoMe);
+            localStorage.carNet=JSON.stringify(myArray)
+
+
+            
+        }   
+
+        
+
+       function myShowCase() {
+        fakeyNew()
+        faceOne.style.display= "none";
+        showMe.style.display= "block";
+           
+       }
+
+        
+        function logOut() {
+            let currentUser = (JSON.stringify(localStorage.removeItem("currentUser")));
+            location.href = 'signUp.html'
+        }
+
+        function back() {
+            faceOne.style.display= "block";
+        showMe.style.display= "none";
+            
+            
+        }
+       
+   
+        function myDelete() {
+        //    let local = JSON.parse(localStorage.getItem("carNet"))
+        //    local.pop()
+        //    localStorage.setItem("carNet", JSON.stringify(local))
+        
+
+
+          
+
+           
+        }
+
+
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+       </body>
+</html>

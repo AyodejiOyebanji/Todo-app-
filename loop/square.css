@@ -1,0 +1,226 @@
+*{
+margin: 0;
+padding: 0;
+}
+.con{
+    height: 360px;
+    width: 50%;
+    background-color: white;
+    box-shadow: 1px 4px 5px 6px red;
+    z-index: 5;
+    margin-top: -700px;
+    
+    
+}
+#circle{
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 200px;
+    background-color: black;
+     clip-path: circle(50% at 50% 50%);
+     z-index: -50; 
+     background-image: linear-gradient(rgba(10, 5, 250, 1), rgba(0, 0, 0, 0.5));
+     
+      }
+#bbtn{
+    width: 120px;
+    font-family: fantasy;
+    color: white;
+}
+#bbtn1{
+    width: 180px;
+    font-family: fantasy;
+    color: white;
+}
+#bbtn:hover{
+    background: red !important;
+}
+h4{
+    animation: light 1.5s ease-in-out infinite alternate;
+
+}
+@keyframes light {
+    from{
+        color: #fff;
+        text-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2,
+        0 0 60px #00fff2,0 0 70px #00fff2,0 0 90px #00fff2;
+    }
+    to {
+        color: blue;
+        text-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2,
+        0 0 60px #00fff2,0 0 70px #00fff2,0 1 90px #00fff2;
+    }
+}
+#to{
+    height: 520px;
+    width: 60%;
+    background-color: transparent;
+    box-shadow: 1px 10px 10px 2px white;
+
+}
+.toDO{
+    width: 490px !important;
+    background-color: transparent !important;
+    border: none;
+
+    
+}
+#line{
+width: 490px;
+margin-left: 150px;
+margin-top: -50px;
+color: white;
+height: 2px;
+}
+#thing{
+    margin-left: 180px;
+    color: white;
+}
+#thing:hover{
+    background-color: white !important;
+    color: #46539E;
+    transform: scale(1.3) !important;
+
+}
+#tWo{
+    display: none;
+}
+.logOut {
+    color: white;
+    width: 90px;
+    border: none;
+    height: 30px;
+    margin: 30px;
+
+}
+.logOut:hover{
+    background-color: white !important;
+    color: #46539E;
+    transform: scale(1.3) !important;
+
+}
+
+.whole{
+    height: 190px;
+    width: 50%;
+    background-color: blue;
+    margin-left: 320px;
+    margin-top: 20px;
+}
+.sub{
+    height: 500px;
+    width: 50%;
+    background-color:white;
+    margin-left:320px ;
+    margin-top: -80px;
+    border-top-left-radius: 40px;
+}
+#purpose{
+    transform: translateY(50px);
+    width: 520px;
+    margin-left: 20px;
+}
+#headingTo{
+    transform: translateY(50px);
+    width: 520px;
+    margin-left: 20px;
+}
+#place{
+    transform: translateY(50px);
+    width: 520px;
+    margin-left: 20px;
+}
+#time{
+    transform: translateY(50px);
+    width: 520px;
+    margin-left: 20px;
+}
+#notification{
+    transform: translateY(50px);
+    width: 520px;
+    margin-left: 20px;
+}
+
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    margin-left: 200px;
+    margin-top: 70px;
+    
+    font-size: 30px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    /* background: transparent; */
+    background-color: red;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+   
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #002bff;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    60% { background-position: 300% 0; }
+    100% { background-position: 100% 0; }
+}
+
+table{
+    border-collapse:collapse ;
+    width: 100px;
+
+}
+td, th {
+    border: 1px solid  red;
+    padding: 8px;
+
+}
+th{
+    font-weight: bold;
+    text-transform: uppercase;
+}
